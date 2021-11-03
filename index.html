@@ -28,3 +28,23 @@
   <img src="https://pbs.twimg.com/media/Ev9ttuNWYAYUsxJ.png" alt="WINNIEDEPOOH">
 </body>
 </html>
+<script>
+  $(document).ready(function(){
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var stopVideos = function() {
+      $('#panel-2 iframe').each(function(i, el) {
+        if(!window.YT)
+        return;
+
+        el.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+      });
+    }
+    $(".change-tab").on('click',function() {
+      stopVideos();
+    }
+  });
+</script>
