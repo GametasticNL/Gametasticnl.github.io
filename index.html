@@ -1,7 +1,117 @@
 <!DOCTYPE html>
 <html>
-<body>
+	<head>
+		<title>OpenWorld/IceBear Testing</title>
+		
+		<meta charset="UTF-8">
+		
+        <link rel="stylesheet" href="css/game.css" type="text/css">
+       
+		<script type="text/javascript" src="OpenWorld/IceBear/lib/jquery.min.js"></script>
+		<script type="text/javascript" src="OpenWorld/IceBear/lib/canvasGL.js"></script>
+		<script type="text/javascript" src="OpenWorld/IceBear/lib/three.min.js"></script>
+		<script type="text/javascript" src="OpenWorld/IceBear/lib/stats.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		
+		<script type="text/javascript" src="OpenWorld/fonts/helvetiker_regular.typeface.js"></script>
+        <script type="text/javascript" src="OpenWorld/fonts/helvetiker_bold.typeface.js"></script>
+		
+		<script type="text/javascript" src="OpenWorld/IceBear/Object.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/AchievementHandler.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/Actor.js"></script>
+				<script type="text/javascript" src="OpenWorld/IceBear/Controller.js"></script>
+					<script type="text/javascript" src="OpenWorld/IceBear/AIController.js"></script>
+					<script type="text/javascript" src="OpenWorld/IceBear/PlayerController.js"></script>
+					
+				<script type="text/javascript" src="OpenWorld/IceBear/MapHandler.js"></script>
+				<script type="text/javascript" src="OpenWorld/IceBear/Pawn.js"></script>
+					<script type="text/javascript" src="OpenWorld/IceBear/Vehicle.js"></script>
+					
+			<script type="text/javascript" src="OpenWorld/IceBear/BuildingFactory.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/Console.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/Engine.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/Game.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/GUIHandler.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/HUD.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/Light.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/Menu.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/Network.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/Player.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/PlayerInput.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/Utilities.js"></script>
+			<script type="text/javascript" src="OpenWorld/IceBear/World.js"></script>
 
-<iframe width="1500" height="750" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; loop" allowfullscreen></iframe>
-</body>
+			<script type="text/javascript" src="OpenWorld/IceBear/lib/proj4js/lib/proj4js-compressed.js"></script>
+
+			
+			<!-- make static resources by importing a script then locking the object -->
+
+			<!-- Leaflet -->
+			 <link rel="stylesheet" href="OpenWorld/lib/Leaflet/dist/leaflet.css" />
+			 <!--[if lte IE 8]>
+			     <link rel="stylesheet" href="OpenWorld/lib/Leaflet/dist/leaflet.ie.css" />
+			 <![endif]-->
+			  <script src="OpenWorld/lib/Leaflet/dist/leaflet.js"></script>
+				<style>
+				#miniMap {
+					height: 300px;
+					position: fixed;
+					bottom: 50px;
+					left: 50px;
+					width: 300px;
+				}
+				</style>
+			  <script src="OpenWorld/lib/OSMBuildings/OSMBuildings-Leaflet.js"></script>
+
+				<!-- Peerjs for WebRTC -->
+				<script src="http://cdn.peerjs.com/0/peer.js"></script> 
+
+				<!-- HTML5 Full Screen API -->
+			 <!--
+			  <script src="OpenWorld/lib/THREEx.FullScreen.js"></script>
+				-->
+				
+			<!-- could use a .get() to load all the scripts during the loading screen -->
+			
+			<script src="OpenWorld/OW.js"></script>
+				<script type="text/javascript" src="OpenWorld/OverpassMapLoader.js"></script>
+				<script type="text/javascript" src="OpenWorld/Pawn.js"></script>
+				<script type="text/javascript" src="OpenWorld/PlayerController.js"></script>
+				<script type="text/javascript" src="OpenWorld/PlayerInput.js"></script>
+				
+				<!-- Core -->
+				<script type="text/javascript" src="OpenWorld/Game.js"></script>
+				<script type="text/javascript" src="OpenWorld/Network.js"></script>
+				<script type="text/javascript" src="OpenWorld/Player.js"></script>
+				<script type="text/javascript" src="OpenWorld/World.js"></script>
+
+	</head>
+
+	<body>
+		
+		<div id='EngineLogo' style="opacity: 0"><img src='img/IceBear.png' height='600px'></img></div>
+		
+		<div id="miniMap" style=""></div>
+
+		<script type="text/javascript">
+			var Clay = Clay || {};
+			Clay.gameKey = "openworld";
+			Clay.readyFunctions = [];
+			Clay.ready = function ( fn ) {
+    			Clay.readyFunctions.push( fn );
+			};
+			Clay.ready(function () {
+				Clay.Player.requireLogin(function (response) {
+					OW.player.initPlayer(Clay.Player);
+					OW.initEngine();
+				});
+			});
+			( function () {
+    			var clay = document.createElement("script"); clay.async = true;
+    			clay.src = ( "https:" == document.location.protocol ? "https://" : "http://" ) + "clay.io/api/api.js"; 
+    			var tag = document.getElementsByTagName("script")[0]; tag.parentNode.insertBefore(clay, tag);
+			} )();
+		</script>
+
+	</body>
 </html>
