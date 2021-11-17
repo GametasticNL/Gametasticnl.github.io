@@ -51,24 +51,11 @@ div {
 }
 </style>
 <body>
-  <head>
-  <style>
-.myDiv {
-  border: 5px outset red;
-  background-color: lightblue;
-  text-align: center;
-}
-</style>
-</head>
 
 <h1>Pizzaria Balo</h1>
 
 <div class="myDiv">
  
-</body>
-  <div class="cleanslate w24tz-current-time w24tz-large" style="display: inline-block !important; visibility: hidden !important; min-width:300px !important; min-height:145px !important;"><p><a href="//24timezones.com/Amsterdam/tijd" style="text-decoration: none" class="clock24" id="tz24-1635948849-c116-eyJob3VydHlwZSI6MTIsInNob3dkYXRlIjoiMSIsInNob3dzZWNvbmRzIjoiMSIsImNvbnRhaW5lcl9pZCI6ImNsb2NrX2Jsb2NrX2NiNjE4Mjk5MzE5YjY0OCIsInR5cGUiOiJkYiIsImxhbmciOiJubCJ9" title="Amsterdam werkelijke tijd" target="_blank" rel="nofollow">Amsterdam</a></p><div id="clock_block_cb618299319b648"></div></div>
-<script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
-    <body>
     ...
     <a href="/page1.html">Page2</a>
     ...
@@ -79,24 +66,5 @@ div {
 Your browser does not support the audio element.
 </audio>
 </html>
-<script>
-  $(document).ready(function(){
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    var stopVideos = function() {
-      $('#panel-2 iframe').each(function(i, el) {
-        if(!window.YT)
-        return;
-
-        el.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
-      });
-    }
-    $(".change-tab").on('click',function() {
-      stopVideos();
-    }
-  });
-</script>
 
