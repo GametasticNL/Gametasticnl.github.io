@@ -63,3 +63,7 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+table, th, td {
+  border: 1px solid black;
+}
