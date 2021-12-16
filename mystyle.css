@@ -67,3 +67,8 @@ tr:nth-child(even) {
 table, th, td {
   border: 1px solid black;
 }
+
+.pizzas {
+  width: 600px;
+  height: 500px;
+}
