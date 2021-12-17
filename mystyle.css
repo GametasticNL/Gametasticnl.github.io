@@ -69,6 +69,6 @@ table, th, td {
 }
 
 .pizzas img {
-  width: 600px;
+  width: auto;
   height: 500px;
 }
