@@ -4,6 +4,6 @@ $.ajax({
     zipcode: 5216AE
   },
   success: function( result ) {
-    $( "#weather-temp" ).html( "<strong>" + result + "</strong> degrees" );
+    $( "#weather-temp" ).html( "<strong>" + result + "</strong> graden" );
   }
 });
